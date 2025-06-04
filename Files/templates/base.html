@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Planit</title>
+<h1>Planit App</h1>
+{% with messages = get_flashed_messages() %}
+  {% for msg in messages %}
+    <p style="color:red">{{ msg }}</p>
+  {% endfor %}
+{% endwith %}
+{% block content %}{% endblock %}

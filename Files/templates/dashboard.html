@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ current_user.email }}!</h2>
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    <h3>Create a New Trip</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=30) }}
+        </p>
+        <p>
+            {{ form.start_date.label }}<br>
+            {{ form.start_date() }}
+        </p>
+        <p>
+            {{ form.end_date.label }}<br>
+            {{ form.end_date() }}
+        </p>
+        <p>
+            {{ form.budget.label }}<br>
+            {{ form.budget() }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <hr>
+    <h3>Your Trips</h3>
+    <ul>
+        {% for trip in trips %}
+        <li>
+            <strong>{{ trip.name }}</strong> | {{ trip.start_date }} to {{ trip.end_date }} | Budget: {{ trip.budget if trip.budget else 'N/A' }}
+        </li>
+        {% else %}
+        <li>No trips yet. Create one above!</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

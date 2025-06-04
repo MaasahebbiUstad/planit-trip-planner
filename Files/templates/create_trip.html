@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Create Trip</h2>
+<form method="post">
+    Trip Name: <input type="text" name="name"><br>
+    <input type="submit">
+</form>
+<a href="{{ url_for('dashboard') }}">Back</a>
+{% endblock %}
