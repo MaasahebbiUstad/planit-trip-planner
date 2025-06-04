@@ -1,0 +1,8 @@
+import os
+
+if os.path.exists("planit.db"):
+    os.remove("planit.db")
+    print("Deleted planit.db")
+else:
+    print("planit.db does not exist")
+
